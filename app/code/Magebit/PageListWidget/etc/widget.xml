@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--/
+**
+* This file is part of the Magebit_PageListWidget package.
+* DISCLAIMER
+* Do not edit or add to this file if you wish to upgrade Magebit_PageListWidget
+* to newer versions in the future.
+*
+* @copyright Copyright (c) 2022 Magebit, Ltd. (https://magebit.com/)
+* @author    Magebit <info@magebit.com>
+* @license   MIT
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Magebit\PageListWidget\Block\Widget\PageList" id="page_list">
+        <label>CMS Page List</label>
+        <description>Display CMS page list</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true" sort_order="10">
+                <label>Title</label>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Display Mode</label>
+                <options>
+                    <option name="all" value="all" selected="true">
+                        <label>All pages</label>
+                    </option>
+                    <option name="specific" value="specific">
+                        <label>Specific pages</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="selected_pages" xsi:type="multiselect" required="true" visible="true"
+                       source_model="Magebit\PageListWidget\Model\Config\Source\CmsPageOptions" sort_order="40">
+                <label translate="true">Selected pages</label>
+                <depends>
+                    <parameter name="display_mode" value="specific" />
+                </depends>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
