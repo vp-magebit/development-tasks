@@ -29,11 +29,12 @@ use Magento\Widget\Block\BlockInterface;
 class PageList extends Template implements BlockInterface
 {
     /**
-     *
+     * All CMS page identifier
      */
     const MODE_ALL = "all";
+
     /**
-     *
+     * Specific CMS page identifier
      */
     const MODE_SPECIFIC = "specific";
 
