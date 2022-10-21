@@ -1,0 +1,104 @@
+<?php
+/**
+ * This file is part of the Magebit_Learning package.
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade Magebit_Learning
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2022 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com>
+ * @license   MIT
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+use Magento\Catalog\Block\Product\View;
+use Magento\Framework\Escaper;
+
+/**
+ * @var View $block
+ * @var Escaper $escaper
+ */
+
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php $availableQuantity = $_product->getExtensionAttributes()->getStockItem()->getQty(); ?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <div class="stock-info-wrapper">
+                <?php if ($block->shouldRenderQuantity()) : ?>
+                    <script type="text/x-magento-init">
+                        {
+                            "*": {
+                                "Magento_Ui/js/core/app": {
+                                    "components": {
+                                        "qty-counter": {
+                                            "component": "Magento_Catalog/js/qty-counter",
+                                            "defaultQty": <?= $block->getProductDefaultQty() * 1 ?>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    </script>
+                    <div class="field qty">
+                        <div class="control" data-bind="scope: 'qty-counter'">
+                            <button type="button" class="minus-qty" data-bind="click: minusQty"
+                                    title="<?= $escaper->escapeHtmlAttr(__('Decrease quantity')); ?>">-
+                            </button>
+                            <input
+                                data-bind="value: qty()"
+                                type="number"
+                                name="qty"
+                                id="qty"
+                                min="0"
+                                value="<?= $block->getProductDefaultQty() * 1 ?>"
+                                title="<?= $escaper->escapeHtmlAttr(__('Qty')) ?>"
+                                class="input-text qty"
+                                data-validate="<?= $escaper->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                            />
+                            <button type="button" class="plus-qty" data-bind="click: plusQty"
+                                    title="<?= $escaper->escapeHtmlAttr(__('Increase quantity')); ?>">+
+                            </button>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if ($block->displayProductStockStatus()) : ?>
+                    <?php if ($_product->isAvailable()) : ?>
+                        <div class="stock available" title="<?= $escaper->escapeHtmlAttr(__('Availability')) ?>">
+                            <span class="black-check-mark">&nbsp;</span>
+                            <span><?= $escaper->escapeHtml(__('In stock')) ?></span>
+                            <?php if (isset($availableQuantity)): ?>
+                                <span
+                                    class="specific-qty"><?= $availableQuantity . " " . $escaper->escapeHtml(__('items available')) ?></span>
+                            <?php endif; ?>
+                        </div>
+                    <?php else : ?>
+                        <div class="stock unavailable" title="<?= $escaper->escapeHtmlAttr(__('Availability')) ?>">
+                            <span><?= $escaper->escapeHtml(__('Out of stock')) ?></span>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

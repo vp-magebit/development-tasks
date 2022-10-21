@@ -1,0 +1,318 @@
+/**
+* This file is part of the Magebit_Learning package.
+* DISCLAIMER
+* Do not edit or add to this file if you wish to upgrade Magebit_Learning
+* to newer versions in the future.
+*
+* @copyright Copyright (c) 2022 Magebit, Ltd. (https://magebit.com/)
+* @author    Magebit <info@magebit.com>
+* @license   MIT
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
+
+.simple-product-learning {
+    .block.related {
+        clear: both;
+    }
+
+    .action.primary, .action-primary {
+        background: hsl(20, 100%, 50%);
+        border-color: hsl(20, 100%, 50%);
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .action.primary:focus,
+    .action-primary:focus,
+    .action.primary:active,
+    .action-primary:active,
+    .action.primary:hover,
+    .action-primary:hover {
+        background: darken(hsl(20, 100%, 50%), 5%);
+        border-color: darken(hsl(20, 100%, 50%), 5%);
+    }
+
+    a, .alink {
+        color: #FF5501;
+    }
+
+    a:hover, .alink:hover {
+        color: #FF5501;
+    }
+
+
+    .product-reviews-summary .reviews-actions .action.add {
+        color: #333333;
+        border: 1px solid #333333;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 17px;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    .page-title {
+        font-weight: bold;
+    }
+
+    .product-info-main .product-info-stock-sku {
+        font-size: 14px;
+        line-height: 43px;
+        float: none;
+        padding: 0 0 0 20px;
+    }
+
+    .product-info-main .product-info-stock-sku {
+        a:hover, .alink:hover {
+            text-decoration: none;
+        }
+    }
+
+    .product-info-price .price-box .price-container {
+        font-size: 32px;
+        line-height: 43px;
+    }
+
+    .product-item .price-box .price {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: bold;
+    }
+
+    .additional-attributes-wrapper {
+        background: #F9F9F9;
+        padding: 20px;
+
+        .additional-attributes {
+            margin-bottom: 0;
+        }
+    }
+
+    .box-tocart .stock-info-wrapper {
+        margin-bottom: 20px;
+
+        .field {
+            display: inline-block;
+        }
+
+        .input-text.qty {
+            background: #FFFFFF;
+            color: #333333;
+            font-size: 19px;
+            width: 86px;
+            height: 52px;
+            vertical-align: middle;
+            border-color: #C2C2C2;
+            display: inline-block;
+        }
+
+        .control button {
+            background: #FFFFFF;
+            color: #333333;
+            width: 52px;
+            height: 52px;
+            font-size: 24px;
+            vertical-align: middle;
+            border-color: #C2C2C2;
+            display: inline-block;
+
+            &.plus-qty {
+                border-left: 0;
+                border-radius: 1px 1px 0 0;
+                float: right;
+            }
+
+            &.minus-qty {
+                border-right: 0;
+                border-radius: 0 0 1px 1px;
+                float: left;
+            }
+        }
+
+        .control button:hover {
+            color: #FF5501;
+        }
+
+        .product-reviews-summary .reviews-actions .action.add {
+            color: #333333;
+            border: 1px solid #333333;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 17px;
+            font-weight: bold;
+            padding: 6px;
+        }
+
+        .stock {
+            display: inline-block;
+            margin-left: 20px;
+            color: #575757;
+
+            .specific-qty {
+                font-weight: normal;
+                text-transform: lowercase;
+            }
+        }
+
+        .black-check-mark {
+            width: 11px;
+            height: 8px;
+            vertical-align: middle;
+            margin-bottom: 1px;
+            background: url("../images/icons/black-check-mark-icon.svg") no-repeat;
+            display: inline-block;
+        }
+    }
+
+    .additional-attributes-wrapper {
+        .additional-attributes {
+            li {
+                .col-label {
+                    font-weight: bold;
+                    float: left;
+                    margin-right: 5px;
+                }
+
+                .col-data {
+                    float: left;
+                }
+            }
+        }
+    }
+
+    .product-item-info {
+        max-width: 100%;
+        width: 224px;
+
+        .action.primary, .action-primary {
+            visibility: hidden;
+            width: 100%;
+        }
+    }
+
+    .product-item-info:hover {
+        .action.primary, .action-primary {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .actions-primary,
+        .product-item-actions .actions-primary .action.primary {
+            visibility: visible;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    .block.related .related-available .product-item-name {
+        margin: 0;
+    }
+
+    .abs-product-link, .product-item-name, .product.name a {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 22px;
+        color: #333333;
+    }
+
+    .block.upsell {
+        .title {
+            padding-bottom: 10px;
+            margin: 0;
+            border-bottom: 1px solid #C2C2C2;
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    .products-upsell.products-grid .product-item {
+        width: 100%;
+    }
+
+    .block.related {
+        .title {
+            border-bottom: 1px solid #C2C2C2;
+            padding-bottom: 18px;
+
+            #block-related-heading {
+                font-size: 24px;
+                line-height: 33px;
+            }
+        }
+    }
+
+    .attribute-short-description {
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    .products-upsell {
+        .product-image-container {
+            width: 110px !important; // As an exception to save time for learning
+        }
+
+        .product-item-info-upsell {
+            display: flex;
+            align-items: center;
+
+            .product-item-details {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+            }
+
+            .product-item-photo,
+            .upsell-view {
+                flex-shrink: 1;
+            }
+        }
+
+        .upsell-view a {
+            font-size: 14px;
+            line-height: 19px;
+            padding: 10px;
+            background: #333333;
+            white-space: nowrap;
+            color: #FFFFFF;
+            border-radius: 2px;
+        }
+    }
+
+    .attribute-short-description {
+        margin-left: 25px;
+        padding-top: 10px;
+    }
+
+    @media (min-width: 769px), print {
+        .box-tocart .action.tocart {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .simple-product-learning {
+        .products-grid.products-upsell .product-item {
+            width: 100%;
+        }
+
+        .products-grid .product-item {
+            width: 20%;
+        }
+
+        .products-grid .product-item {
+            width: 20%;
+        }
+    }
+}
+
+@media (min-width: 640px) {
+    .simple-product-learning {
+        .products-upsell.products-grid .product-item {
+            width: 100%;
+        }
+    }
+}
+

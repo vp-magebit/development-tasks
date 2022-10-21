@@ -1,0 +1,52 @@
+<?php
+/**
+ * This file is part of the Magebit_Learning package.
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade Magebit_Learning
+ * to newer versions in the future.
+ *
+ * @copyright Copyright (c) 2022 Magebit, Ltd. (https://magebit.com/)
+ * @author    Magebit <info@magebit.com>
+ * @license   MIT
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+use Magento\Catalog\Block\Product\View\Attributes;
+use Magento\Framework\Escaper;
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block Attributes
+ * @var Escaper $escaper
+ */
+?>
+<?php
+$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$_product = $block->getProduct();
+$_attributes = $_product->getAttributes();
+$desiredAttributeKeys = ['color', 'material', 'activity'];
+
+$_additional = array_intersect_key($_attributes, array_flip($desiredAttributeKeys));
+?>
+<?php if ($_additional) : ?>
+    <div class="additional-attributes-wrapper table-wrapper">
+        <ul class="additional-attributes">
+            <?php foreach ($_additional as $_attribute) : ?>
+                <?php $_data = $_attribute->getData(); ?>
+                <li>
+                    <div class="col-label"><?= $escaper->escapeHtml($_data['frontend_label'] . ":") ?></div>
+                    <div class="col-data"
+                         data-th="<?= $escaper->escapeHtmlAttr($_data['frontend_label']) ?>"><?= /* @noEscape */
+                        $_helper->productAttribute($_product, $_attribute->getFrontend()->getValue($_product), $_data['attribute_code']) ?></div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php if ($shortDescription = $_product->getShortDescription()): ?>
+            <div class="attribute-short-description"><?= $shortDescription ?></div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
