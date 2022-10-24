@@ -1,0 +1,16 @@
+{
+  "name": "magebit/magento2-module-faq",
+  "description": "Magebit Magento2 module Faq",
+  "require": {
+    "php": "~7.0.0"
+  },
+  "type": "magento2-module",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magebit\\Faq\\": ""
+    }
+  }
+}
