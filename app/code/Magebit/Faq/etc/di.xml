@@ -43,4 +43,7 @@
             <argument name="resourceModel" xsi:type="string">Magebit\Faq\Model\ResourceModel\Faq</argument>
         </arguments>
     </type>
+    <preference for="Magebit\Faq\Api\FaqRepositoryInterface" type="Magebit\Faq\Model\Data\FaqRepository"/>
+    <preference for="Magebit\Faq\Api\Data\FaqInterface" type="Magebit\Faq\Model\Data\Faq"/>
+    <preference for="Magebit\Faq\Api\Data\FaqSearchResultInterface" type="Magebit\Faq\Model\Data\FaqSearchResult"/>
 </config>

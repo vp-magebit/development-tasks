@@ -50,7 +50,6 @@ class Collection extends FaqCollection implements SearchResultInterface
      * @param null $connection
      * @param AbstractDb|null $resource
      *
-     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
         EntityFactoryInterface $entityFactory,
@@ -94,6 +93,8 @@ class Collection extends FaqCollection implements SearchResultInterface
     public function setAggregations($aggregations): static
     {
         $this->aggregations = $aggregations;
+
+        return $this;
     }
 
     /**
